@@ -1,0 +1,212 @@
+body {
+    background-color: #282c31 !important;  /* or whatever your desired color is */
+}
+
+.navbar {
+    background-color: #343a40; /* Dark color for navbar */
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #e9ecef; /* Light text for contrast */
+}
+
+.navbar .navbar-brand {
+    color: #e9ecef;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #23272b; /* Dark shade for sidebar */
+    padding: 20px 15px;
+    border-right: 1px solid #282c31;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    display: block;
+    padding: 8px 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    color: #e9ecef; /* Light text for contrast */
+}
+
+.sidebar-link:hover {
+    background-color: #343a40; /* Slightly lighter shade on hover */
+    color: #fff; /* White text on hover */
+}
+
+.sidebar-link.active {
+    background-color: #495057; /* Even darker shade for the active link */
+    font-weight: bold;
+    color: #e9ecef; /* Light text for contrast */
+}
+
+.page-content {
+    background-color: #282c31; /* Dark background for content */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
+    color: #e9ecef; /* Light text for contrast */
+}
+
+.main-container {
+    padding: 120px 20px 20px;
+    background-color: #1e2125; /* Dark background for main container */
+}
+
+/* DataTable styling */
+.dash-table-container {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: #e9ecef; /* Light text for contrast */
+}
+
+.fas {
+    margin-right: 10px;
+    color: #e9ecef; /* Light icon color for contrast */
+}
+
+
+/* Modify the dropdown menu background color */
+.Select-menu-outer {
+    background-color: #282c31;
+    border-color: #343a40;
+}
+
+/* Modify the dropdown option text color */
+.Select-option {
+    color: #e9ecef;
+}
+
+/* Modify the dropdown option text color on hover */
+.Select-option.is-focused {
+    background-color: #343a40;
+    color: #fff;
+}
+
+/* Modify the control background, border, and text color */
+.Select-control {
+    background-color: #282c31;
+    border-color: #343a40;
+    color: #e9ecef;
+}
+
+/* Modify the placeholder text color */
+.Select-placeholder {
+    color: #7c8490;  /* Slightly lighter grey for better visibility */
+}
+
+/* Modify the clear indicator color */
+.Select-clear-zone {
+    color: #e9ecef;
+}
+
+/* Ensure the input box remains dark even when active */
+.Select-input input, .Select-input {
+    background-color: #282c31 !important;
+    color: #e9ecef !important;
+}
+
+/* Ensure the selected option has a contrasting text color */
+.Select-value-label {
+    color: #e9ecef !important;
+}
+
+/* Highlight the selected option with a slightly different background */
+.Select-value {
+    background-color: #343a40 !important;
+}
+
+/* Ensure the whole select control has a consistent background color */
+.Select-control {
+    background-color: #282c31 !important;
+}
+
+/* Ensure the input part of the select control has a consistent background color */
+.Select-input > input {
+    background-color: #282c31 !important;
+}
+
+/* Ensure the arrow zone of the select control has a consistent background color */
+.Select-arrow-zone {
+    background-color: #282c31 !important;
+}
+
+/* Dropdown menu item styling */
+.VirtualizedSelectOption {
+    background-color: #282c31 !important;  /* Dark background for the dropdown option */
+    color: #e9ecef !important;  /* Light text color for the dropdown option */
+}
+
+/* Dropdown menu item styling on hover */
+.VirtualizedSelectOption:hover {
+    background-color: #343a40 !important;  /* Slightly lighter shade on hover */
+    color: #ffffff !important;  /* White text color on hover */
+}
+
+.tab.jsx-1653633250 {
+    background-color: #23272b !important;
+    color: #e9ecef !important;
+    border: 1px solid #282c31 !important;
+}
+
+.tab--selected.jsx-1653633250 {
+    background-color: #495057 !important;
+    color: #e9ecef !important;
+    border-top: 2px solid #e9ecef !important;
+}
+
+.tab.jsx-1653633250, .tab--selected.jsx-1653633250 {
+    border-radius: 10px !important;
+}
+
+.dash-table-container .dash-header, .dash-table-container .dash-cell {
+    font-family: "Open Sans", verdana, arial, sans-serif;
+}
+
+/* 表头样式 */
+.dash-table-container .dash-header {
+    background-color: #343a40;  /* 深色背景 */
+    color: #e9ecef;  /* 浅色文本 */
+    font-weight: bold;  /* 字体加粗 */
+}
+
+/* 表格内容样式 */
+.dash-table-container .dash-table-cell {
+    padding: 10px 15px;  /* 增加内边距以防止内容拥挤 */
+    border-bottom: 1px solid #282c31;  /* 添加底部边框 */
+}
+
+/* 根据需要调整文本对齐 */
+.dash-table-container .dash-table-cell {
+    text-align: left;  /* 左对齐 */
+}
+
+/* 如果您希望数字居右，请针对数字列使用以下样式 */
+.dash-table-container .column-id-of-your-number .dash-table-cell {
+    text-align: right;  /* 右对齐 */
+}
+
+.search-card {
+    background-color: #343a40;  /* dark grey */
+    color: #ffffff;  /* white */
+    border: 1px solid #444950;  /* slightly lighter grey than the background */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  /* shadow for 3D effect */
+    padding: 20px;  /* space inside the card */
+}
+
+.search-card h5 {
+    font-size: 1.25em;  /* slightly larger font size for job title */
+    font-weight: bold;  /* bold font for job title */
+}
+
+.search-card p {
+    font-size: 1em;  /* normal font size for other text */
+}
+
+.card-body {
+    padding: 2px;
+}
