@@ -46,7 +46,7 @@ body {
 
 .page-content {
     background-color: #282c31; /* Dark background for content */
-    padding: 20px;
+    padding: 30px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
     color: #e9ecef; /* Light text for contrast */

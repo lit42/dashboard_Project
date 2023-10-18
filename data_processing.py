@@ -83,7 +83,7 @@ def parse_skills(skills_str):
 
 def map_salary_to_range(salary):
     if salary == "Not specified":
-        return "Not specified"
+        return None  # 如果薪资未指定，返回 None
     elif "a year" in salary:
         if "-" in salary:
             low, high = salary.split("-")
@@ -93,13 +93,22 @@ def map_salary_to_range(salary):
         else:
             avg = int(salary.split()[0].replace(",", ""))
 
-        if avg < 60000:
-            return "<60k"
-        elif 60000 <= avg < 100000:
-            return "60k-100k"
-        elif 100000 <= avg < 150000:
-            return "100k-150k"
+        # 定义更宽的薪资范围
+        if avg < 50000:
+            return "<50k"
+        elif 50000 <= avg < 75000:
+            return "50k-75k"
+        elif 75000 <= avg < 100000:
+            return "75k-100k"
+        elif 100000 <= avg < 125000:
+            return "100k-125k"
+        elif 125000 <= avg < 150000:
+            return "125k-150k"
+        elif 150000 <= avg < 175000:
+            return "150k-175k"
+        elif 175000 <= avg < 200000:
+            return "175k-200k"
         else:
-            return "150k+"
+            return "200k+"
     else:
         return "Other"

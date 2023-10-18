@@ -98,7 +98,7 @@ def create_job_title_bar_chart(df, column, selected_category, categories):
         fig.update_layout(title_text="Job Title Category Distribution")
 
     fig.update_traces(
-        marker_color="#e9ecef",  # light color for bars
+        # marker_color="#e9ecef",  # light color for bars
         opacity=0.8
     )
 
@@ -145,18 +145,23 @@ def generate_choropleth_map(df):
                         color='count',
                         locationmode='USA-states',
                         scope='usa',
-                        title='Job Listings Distribution across USA',
+                        title='Job Distributions across USA',
                         color_continuous_scale=px.colors.sequential.Blues,
                         labels={'count': 'Number of Listings'}
                         )
 
     fig.update_layout(
-        title_text='Job Listings Distribution across USA',
+        title_text='Job Distributions across USA',
         title_font_color="#e9ecef",  # light color for title
         geo_bgcolor="#282c31",  # dark background for the map
         paper_bgcolor="#282c31",  # dark paper background
         geo=dict(
             lakecolor="#282c31"  # dark color for lakes
+        ),
+        coloraxis_colorbar=dict(
+            titlefont=dict(color="#e9ecef"),  # light color for the colorbar title
+            tickfont=dict(color="#e9ecef"),  # light color for the colorbar tick labels
+            # removed the tickvals attribute to let Plotly decide the tick marks
         )
     )
     return fig
@@ -219,15 +224,41 @@ def create_skill_table(df, skill_type, category_column):
 
 def create_salary_bar_chart(df):
     df['salary_range'] = df['salary'].apply(map_salary_to_range)
+    df_filtered = df[df['salary_range'].notna()]
 
-    # 2. 创建柱状图
-    salary_distribution = df['salary_range'].value_counts().reset_index()
+    salary_order = ["<50k", "50k-75k", "75k-100k", "100k-125k", "125k-150k", "150k-175k", "175k-200k", "200k+"]
+
+    salary_distribution = df_filtered['salary_range'].value_counts().reindex(salary_order).reset_index()
     salary_distribution.columns = ['Salary Range', 'Job Count']
 
     fig_salary_ranges = px.bar(salary_distribution,
                                x='Salary Range',
                                y='Job Count',
                                title='Job Count by Salary Range')
+
+    fig_salary_ranges.update_layout(
+        paper_bgcolor="#282c31",  # 主题的深色背景
+        plot_bgcolor="#282c31",  # 与纸张背景颜色相同
+        font=dict(color="#e9ecef"),  # 浅色字体
+        title_font=dict(color="#e9ecef"),  # 标题的浅色字体
+        xaxis=dict(
+            title_font=dict(color="#e9ecef"),  # X轴标题的浅色字体
+            tickfont=dict(color="#e9ecef"),  # X轴刻度的浅色字体
+            linecolor="#e9ecef",  # X轴线条的浅色
+            gridcolor="#4f5b62"  # 网格线的深灰色
+        ),
+        yaxis=dict(
+            title_font=dict(color="#e9ecef"),  # Y轴标题的浅色字体
+            tickfont=dict(color="#e9ecef"),  # Y轴刻度的浅色字体
+            linecolor="#e9ecef",  # Y轴线条的浅色
+            gridcolor="#4f5b62"  # 网格线的深灰色
+        ),
+    )
+    fig_salary_ranges.update_traces(
+        # marker_color="#e9ecef",  # light color for bars
+        opacity=0.8
+    )
     return fig_salary_ranges
+
 
 
