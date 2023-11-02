@@ -51,7 +51,7 @@ def get_layout():
                         dbc.Nav([
                             html.Div([
                                 html.I(className="fas fa-chart-bar"),  # icon for Job Title Distributions
-                                dcc.Link("Job Distributions", href="/job-title-distributions", id="link-job-title",
+                                dcc.Link("Number of Jobs", href="/job-title-distributions", id="link-job-title",
                                          className="sidebar-link"),
                             ], className="d-flex align-items-center mb-2"),
                             html.Div([
