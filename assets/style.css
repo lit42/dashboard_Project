@@ -167,27 +167,23 @@ body {
     font-family: "Open Sans", verdana, arial, sans-serif;
 }
 
-/* 表头样式 */
 .dash-table-container .dash-header {
-    background-color: #343a40;  /* 深色背景 */
-    color: #e9ecef;  /* 浅色文本 */
-    font-weight: bold;  /* 字体加粗 */
+    background-color: #343a40;
+    color: #e9ecef;
+    font-weight: bold;
 }
 
-/* 表格内容样式 */
 .dash-table-container .dash-table-cell {
-    padding: 10px 15px;  /* 增加内边距以防止内容拥挤 */
-    border-bottom: 1px solid #282c31;  /* 添加底部边框 */
+    padding: 10px 15px;
+    border-bottom: 1px solid #282c31;
 }
 
-/* 根据需要调整文本对齐 */
 .dash-table-container .dash-table-cell {
-    text-align: left;  /* 左对齐 */
+    text-align: left;
 }
 
-/* 如果您希望数字居右，请针对数字列使用以下样式 */
 .dash-table-container .column-id-of-your-number .dash-table-cell {
-    text-align: right;  /* 右对齐 */
+    text-align: right;
 }
 
 .search-card {

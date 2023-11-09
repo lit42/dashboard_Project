@@ -72,18 +72,15 @@ def process_data_optimized(df):
 
 def parse_skills(skills_str):
     try:
-        # 尝试将字符串解析为列表
         skills = ast.literal_eval(skills_str)
-        # 如果成功，则将列表连接成一个字符串
         return ', '.join(skills)
     except ValueError:
-        # 如果发生错误，返回原始字符串
         return skills_str
 
 
 def map_salary_to_range(salary):
     if salary == "Not specified":
-        return None  # 如果薪资未指定，返回 None
+        return None
     elif "a year" in salary:
         if "-" in salary:
             low, high = salary.split("-")
@@ -93,7 +90,6 @@ def map_salary_to_range(salary):
         else:
             avg = int(salary.split()[0].replace(",", ""))
 
-        # 定义更宽的薪资范围
         if avg < 50000:
             return "<50k"
         elif 50000 <= avg < 75000:

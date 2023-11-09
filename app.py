@@ -222,28 +222,24 @@ def update_search_results(n_clicks, selected_job, selected_location):
     if not n_clicks:
         raise PreventUpdate
 
-    # 检查用户是否选择了工作和位置
     if not selected_job or not selected_location:
         return dbc.Alert("Please select both a job and a location before searching.", color="danger")
 
-    # 根据所选的工作和位置过滤主数据框
     filtered_df = df[
         ((df['des_category_level'] == selected_job) | (df['des_category_domain'] == selected_job)) &
         (df['location'] == selected_location)
     ]
 
-    # 如果没有匹配的工作，显示消息
     if filtered_df.empty:
         return dbc.Alert("No jobs found for the selected job and location.", color="warning")
 
     results = []
     for _, row in filtered_df.iterrows():
         job_title = row['title']
-        salary = row['salary']  # 使用 'salary' 列
-        top10_hard_skills = parse_skills(row['Top 10 Hard Skills'])  # 注意大小写和空格
-        top10_soft_skills = parse_skills(row['Top 10 Soft Skills'])  # 注意大小写和空格
+        salary = row['salary']
+        top10_hard_skills = parse_skills(row['Top 10 Hard Skills'])
+        top10_soft_skills = parse_skills(row['Top 10 Soft Skills'])
 
-        # 为每个工作创建一个卡片布局
         job_card = dbc.Card(
             [
                 dbc.CardHeader(html.H5(job_title, className="card-title", style={"font-weight": "bold"})),
@@ -306,7 +302,7 @@ def update_homepage_contents(pathname):
     fig_soft_skills = px.pie(top_10_soft_skills, names='Skill', values='Count', title='Top 10 Soft Skills')
     fig_soft_skills.update_traces(marker=dict(colors=['#19D3F3', '#FF6692', '#B6E880', '#FF97FF']))  # 使用您的颜色列表
 
-    fig_salary_ranges = create_salary_bar_chart(df)  # 新增
+    fig_salary_ranges = create_salary_bar_chart(df)
 
     fig_hard_skills.update_layout(
         paper_bgcolor="#282c31",
@@ -317,7 +313,7 @@ def update_homepage_contents(pathname):
         font=dict(color="#e9ecef")
     )
 
-    return total_jobs, fig_hard_skills, fig_soft_skills, fig_salary_ranges  # 更新返回值
+    return total_jobs, fig_hard_skills, fig_soft_skills, fig_salary_ranges
 
 
 @app.callback(Output('page-content', 'children'),
@@ -408,32 +404,28 @@ def display_page(pathname):
     else:
         return html.Div(style={'display': 'flex', 'flex-wrap': 'wrap', 'height': '100vh', 'overflow': 'hidden'},
                         children=[
-                            # 总工作数量，占据左上角
-                            html.Div(className='data-display',  # 添加类名以便于在 CSS 中样式化
+                            html.Div(className='data-display',
                                      style={'flex': '1 0 50%', 'display': 'flex', 'flexDirection': 'column',
                                             'justifyContent': 'center', 'alignItems': 'center', 'overflow': 'auto'},
                                      children=[
                                          html.Div(style={'display': 'flex', 'alignItems': 'center', 'fontSize': '1.5em',
-                                                         'marginBottom': '20px'},  # 增加下边距
+                                                         'marginBottom': '20px'},
                                                   children=[
                                                       html.I(className="fas fa-database",
-                                                             style={'marginRight': '10px'}),  # 添加数据图标
-                                                      html.Span('Total Jobs', style={'fontWeight': 'bold'})  # 标题文本
+                                                             style={'marginRight': '10px'}),
+                                                      html.Span('Total Jobs', style={'fontWeight': 'bold'})
                                                   ]),
-                                         html.Div(id='total-jobs', style={'fontSize': '3em'})  # 工作总数，仅数字
+                                         html.Div(id='total-jobs', style={'fontSize': '3em'})
                                      ]),
 
-                            # 薪资范围图表，占据左下角
                             html.Div(style={'flex': '1 0 50%', 'height': '50%', 'overflow': 'auto'}, children=[
                                 dcc.Graph(id='bar-chart-salary-ranges', style={'height': '90%', 'width': '100%'}),
                             ]),
 
-                            # 硬技能饼图，占据右上角
                             html.Div(style={'flex': '1 0 50%', 'height': '50%', 'overflow': 'auto'}, children=[
                                 dcc.Graph(id='pie-chart-hard-skills', style={'height': '90%', 'width': '100%'}),
                             ]),
 
-                            # 软技能饼图，占据右下角
                             html.Div(style={'flex': '1 0 50%', 'height': '50%', 'overflow': 'auto'}, children=[
                                 dcc.Graph(id='pie-chart-soft-skills', style={'height': '90%', 'width': '100%'}),
                             ]),

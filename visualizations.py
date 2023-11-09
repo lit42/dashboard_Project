@@ -37,7 +37,6 @@ def create_histograms(df_processed):
         paper_bgcolor="#282c31",  # Background outside the plot
         plot_bgcolor="#282c31",  # Background inside the plot
         font=dict(color="#e9ecef"),  # Font color
-        # ... other layout properties ...
     )
     fig_domain.update_layout(
         paper_bgcolor="#282c31",
@@ -237,21 +236,21 @@ def create_salary_bar_chart(df):
                                title='Job Count by Salary Range')
 
     fig_salary_ranges.update_layout(
-        paper_bgcolor="#282c31",  # 主题的深色背景
-        plot_bgcolor="#282c31",  # 与纸张背景颜色相同
-        font=dict(color="#e9ecef"),  # 浅色字体
-        title_font=dict(color="#e9ecef"),  # 标题的浅色字体
+        paper_bgcolor="#282c31",
+        plot_bgcolor="#282c31",
+        font=dict(color="#e9ecef"),
+        title_font=dict(color="#e9ecef"),
         xaxis=dict(
-            title_font=dict(color="#e9ecef"),  # X轴标题的浅色字体
-            tickfont=dict(color="#e9ecef"),  # X轴刻度的浅色字体
-            linecolor="#e9ecef",  # X轴线条的浅色
-            gridcolor="#4f5b62"  # 网格线的深灰色
+            title_font=dict(color="#e9ecef"),
+            tickfont=dict(color="#e9ecef"),
+            linecolor="#e9ecef",
+            gridcolor="#4f5b62"
         ),
         yaxis=dict(
-            title_font=dict(color="#e9ecef"),  # Y轴标题的浅色字体
-            tickfont=dict(color="#e9ecef"),  # Y轴刻度的浅色字体
-            linecolor="#e9ecef",  # Y轴线条的浅色
-            gridcolor="#4f5b62"  # 网格线的深灰色
+            title_font=dict(color="#e9ecef"),
+            tickfont=dict(color="#e9ecef"),
+            linecolor="#e9ecef",
+            gridcolor="#4f5b62"
         ),
     )
     fig_salary_ranges.update_traces(
